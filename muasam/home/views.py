@@ -4,7 +4,7 @@ from .models import Product,Order
 from .forms import OrderForm
 
 
-def home(request):
+def product(request):
     product_list = Product.objects.all()
     paginator = Paginator(product_list, 6) #hiển thị 6 sản phẩm trên mỗi trang
     page_number = request.GET.get('page')
@@ -22,12 +22,13 @@ def place_order(request,pk):
             order = form.save(commit=False)
             order.product = product
             order.save()
-            return redirect('order_success')
+            return redirect('order_success.html')
     else:
         form = OrderForm()
     return render (request,'place_order.html',{'product':product,'form':form})
 def order_success(request):
     return render(request,'order_success.html')
-
+def home(request):
+    return render(request,'home.html')
 
 
