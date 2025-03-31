@@ -46,12 +46,8 @@
     <title>Sản phẩm</title>
   </head>
   <body>
-    <nav>
-        <a href="{% url 'home' %}" >Home</a>
-        <a href="{% url 'product' %}"class="active">Product</a>
-        <a href="#services">Contact</a>
- 
-    </nav>
+    {% include 'header.html' %}
+    
     {% include 'carousel.html' %}
 
     <div class="container">
