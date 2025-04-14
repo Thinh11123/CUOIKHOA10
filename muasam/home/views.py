@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.core.paginator import Paginator
 from .models import Product,Order
 from .forms import OrderForm
@@ -14,7 +14,7 @@ def product(request):
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product_detail.html', {'product': product})
-def place_order(request,pk):
+def place_order(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -22,10 +22,10 @@ def place_order(request,pk):
             order = form.save(commit=False)
             order.product = product
             order.save()
-            return redirect('order_success.html')
+            return redirect('order_success')  # ← Sửa chỗ này: tên view, không phải tên file .html
     else:
         form = OrderForm()
-    return render (request,'place_order.html',{'product':product,'form':form})
+    return render(request, 'place_order.html', {'product': product, 'form': form})
 def order_success(request):
     return render(request,'order_success.html')
 def home(request):
@@ -36,4 +36,6 @@ def nike_pd(request):
 def adidas_pd(request):
     product=Product.objects.filter(category='adidas')
     return render(request, 'adidas.html',{'products':product})
+def contact(request):
+    return render(request,'contact.html')
 

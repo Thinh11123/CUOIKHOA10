@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - Thể Thao</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0f7fa, #e1f5fe); /* Gradient nhẹ tạo chiều sâu */
+      color: #003c8f;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background: #003c8f;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95); /* nền trắng hơi trong suốt */
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    /* Form Elements */
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #003c8f;
+    }
+    
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #90caf9;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    form input:focus,
+    form textarea:focus {
+      border-color: #0288d1;
+      outline: none;
+      box-shadow: 0 0 5px rgba(2,136,209,0.4);
+    }
+    
+    form button {
+      background-color: #0288d1;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    form button:hover {
+      background-color: #01579b;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #003c8f;
+      color: white;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    {% include 'header.html' %} 
+  <header>
+    <h1>Liên Hệ Với Chúng Tôi</h1>
+    <p>Hãy kết nối với đội ngũ thể thao của bạn!</p>
+  </header>
+
+  <div class="container">
+    <form>
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email liên hệ" required>
+
+      <label for="message">Nội dung</label>
+      <textarea id="message" name="message" rows="5" placeholder="Nội dung bạn muốn trao đổi..." required></textarea>
+
+      <button type="submit">Gửi Tin Nhắn</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Trung tâm Thể Thao | Liên hệ: info@thethao.vn
+  </footer>
+
+</body>
+</html>

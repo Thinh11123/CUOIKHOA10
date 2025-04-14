@@ -2,22 +2,40 @@
 <html lang="en">
 <head>
     {% load static %}
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .order-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Điền thông tin mua hàng</h2>
-        <form method="post" action="{% url 'place_order' product.pk}">
-            {% csrf_token %}
-            {{ form.as_p}}
-            <button type="submit" class="btn btn-primary">Đặt hàng</button>
-        </form>
+        <div class="order-form">
+            <h3 class="mb-4">📝 Điền thông tin mua hàng</h3>
+            <form method="post" action="{% url 'place_order' product.pk %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary mt-3">🛒 Đặt hàng</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -6,69 +6,169 @@
     <title>Sports Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .navbar-brand { font-weight: bold; }
-        .navbar-nav .nav-link { font-weight: 600; }
-        .search-bar { border: none; background: none; outline: none; }
-        .btn-signin { background-color: #4CAF50; color: white; border-radius: 20px; padding: 5px 15px; }
-        .btn-signin:hover { background-color: #45a049; }
+.hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1606813902781-34d997419197?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      color: white;
+      padding: 100px 40px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background: #ffca28;
+      color: #000;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .features {
+      background-color: #2e7d32;
+      color: white;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .feature-item {
+      width: 30%;
+      transition: transform 0.3s;
+    }
+
+    .feature-item:hover {
+      transform: scale(1.05);
+    }
+
+    .feature-item h3 {
+      margin-bottom: 10px;
+    }
+
+    .stories {
+      background-color: #fff;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .quote {
+      background: #f0f0f0;
+      padding: 40px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features, .stories {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+     .feature-item {
+         width: 100%;
+      }
+    }
+    .stories img {
+  border: 4px solid #2e7d32;
+  transition: transform 0.3s ease;
+}
+
+.stories img:hover {
+  transform: scale(1.1);
+}
+.feature-item img {
+    min-width: 350px;
+    max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.feature-item img:hover {
+  transform: scale(1.05);
+}   
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">SPORTSBLOG</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href=>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href=>Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'product' %}">Product</a></li>
-
-                </ul>
-                <input type="text" class="search-bar" placeholder="🔍">
-                <button class="btn btn-signin">SIGN IN</button>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="hero-section text-center py-5 bg-dark text-white">
-        <h2>Built for sports.</h2>
+    {% include 'header.html' %} 
+    <section class="hero">
+        <h1>Built for sports.</h1>
         <p>The place to publish and grow your fanbase.</p>
-        <button class="btn btn-warning">START YOUR BLOG</button>
-    </section>
+        <button><a href="{% url 'product' %}"  style="text-decoration:none">DECIDE YOUR STYLE</a></button>
+      </section>
     
-    <section class="feature-section text-center py-5 bg-success text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"> <h4>A powerful platform.</h4> <p>Design a professional sports blog.</p> </div>
-                <div class="col-md-4"> <h4>Build your fan base.</h4> <p>Amplify your reach.</p> </div>
-                <div class="col-md-4"> <h4>Earn cash and rewards.</h4> <p>Monetize your content.</p> </div>
-            </div>
+      <section class="features">
+        <div class="feature-item">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.pegtnifzc8YwcmFo8E2HZgHaHa&pid=Api&P=0&h=180" alt="platform" class="img-fluid mb-3 rounded shadow-sm">
+          <h3>A powerful platform</h3>
+          <p>Design a professional sports blog.</p>
         </div>
-    </section>
-    
-    <section class="featured-stories text-center py-5">
-        <h3>Featured Stories</h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"> <h5>Ben Sundeck</h5> <p>Smallville Sports</p> </div>
-                <div class="col-md-4"> <h5>Randolph Charlstein</h5> <p>NE Arena</p> </div>
-                <div class="col-md-4"> <h5>Catherine Goffenberg</h5> <p>The Catch Up</p> </div>
-            </div>
+        <div class="feature-item">
+          <img src="https://techvorm.com/wp-content/uploads/2021/08/adidas-4DFWD-2-Male-scaled.jpg" alt="fanbase" class="img-fluid mb-3 rounded shadow-sm">
+          <h3>Build your fan base</h3>
+          <p>Amplify your reach.</p>
         </div>
-    </section>
+        <div class="feature-item">
+          <img src="https://sneakerdaily.vn/wp-content/uploads/2024/04/Ao-adidas-SST-Classics-Adicolor-Track-Jacket-IM4545.jpg">
+          <h3>Earn cash and rewards</h3>
+          <p>Monetize your content.</p>
+        </div>
+      </section>
+      
     
-    <section class="testimonial text-center py-5 bg-light">
-        <blockquote>“I've tried other sports blogging sites but SportsBlog has the most features and the best community I’ve ever experienced.”</blockquote>
-        <p>- Ben Sundeck</p>
-    </section>
+      <section class="stories">
+        <div>
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3" width="100" height="100" alt="Ben Sundeck">
+          <h4>Ben Sundeck</h4>
+          <p>Smallville Sports</p>
+        </div>
+        <div>
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle mb-3" width="100" height="100" alt="Randolph Charlstein">
+          <h4>Randolph Charlstein</h4>
+          <p>NE Arena</p>
+        </div>
+        <div>
+          <img src="https://randomuser.me/api/portraits/women/60.jpg" class="rounded-circle mb-3" width="100" height="100" alt="Catherine Goffenberg">
+          <h4>Catherine Goffenberg</h4>
+          <p>The Catch Up</p>
+        </div>
+      </section>
     
-    <footer class="footer text-center py-3 bg-dark text-white">
-        <p>&copy; 2025 SportsBlog. All rights reserved.</p>
-    </footer>
+      <section class="quote">
+        “I’ve tried other sports blogging sites but SportsBlog has the most features and the best community I’ve ever experienced.”  
+        <br><br>– Ben Sundeck
+      </section>
+    
+      <footer>
+        &copy; 2025 SportsBlog. All rights reserved.
+      </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

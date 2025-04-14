@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import product, product_detail,place_order,order_success,home,nike_pd,adidas_pd
+from .views import product, product_detail,place_order,order_success,home,nike_pd,adidas_pd,contact
 
 urlpatterns = [
     path('product/', product, name='product'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('order_success/', order_success, name='order_success'),
     path('',home, name='home'),
     path('nike/',nike_pd,name='nike'),
-    path('adidas_pd',adidas_pd,name='adidas')
+    path('adidas_pd',adidas_pd,name='adidas'),
+    path('contact/',contact,name='contact')
 ]

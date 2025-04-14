@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .thank-you {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .thank-you h1 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="alert alert-success" role="alert">
-            Đơn hàng của bạn đã được đặt thành công!
-
-        </div>
-        <a href="{% url 'home' %}" class="btn btn-primary">Quay lại trang chủ</a>
+    <div class="container thank-you">
+        <h1>✅ Đặt hàng thành công!</h1>
+        <p class="lead">Cảm ơn bạn đã tin tưởng và mua sắm tại cửa hàng của chúng tôi.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-4">🏠 Quay lại trang chủ</a>
     </div>
 </body>
 </html>
