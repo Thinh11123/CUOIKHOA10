@@ -2,11 +2,15 @@ from django.db import models
 from django.urls import reverse
 
 class Product(models.Model):
+    CATEGORY=[
+        ('nike','nike'),
+        ('adidas','adidas'),
+    ]
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     image = models.ImageField(upload_to='products/')
-
+    category = models.CharField(max_length=50,choices=CATEGORY,default='nike')
     def __str__(self):
         return self.name
     

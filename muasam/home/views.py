@@ -30,5 +30,10 @@ def order_success(request):
     return render(request,'order_success.html')
 def home(request):
     return render(request,'home.html')
-
+def nike_pd(request):
+    product=Product.objects.filter(category='nike')
+    return render(request, 'nike.html',{'products':product})
+def adidas_pd(request):
+    product=Product.objects.filter(category='adidas')
+    return render(request, 'adidas.html',{'products':product})
 
